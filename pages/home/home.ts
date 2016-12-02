@@ -51,42 +51,19 @@ export class HomePage {
 
     prompt.present();
   }
-
-  deleteBook(bookID):void {
-    let prompt = this.alertCtrl.create({
-      title: 'Delete Book',
-
-      //now we'll add the buttons to cancel and save our changes that we make in the modal
-      buttons: [
-        {
-          text: "Cancel",
-          handler: data => {
-            console.log("cancel clicked");
-          }
-        },
-        {
-          text: "Delete Book",
-          handler: data => {
-            this.books.remove(bookID);
-          }
-        }
-      ]
-    });
-
-    prompt.present();
-  }
-
+  
+  
   editBook(book):void {
     let prompt = this.alertCtrl.create({
       title: 'Edit Book',
       message: 'Edit the book title and author',
       inputs: [
         {
-          name: 'Title',
+          name: 'title',
           placeholder: book.title
         },
         {
-          name: 'Author',
+          name: 'author',
           placeholder: book.author
         }
       ],
@@ -122,5 +99,30 @@ export class HomePage {
 
     prompt.present();
   }
+
+  deleteBook(bookID):void {
+    let prompt = this.alertCtrl.create({
+      title: 'Delete Book',
+
+      //now we'll add the buttons to cancel and save our changes that we make in the modal
+      buttons: [
+        {
+          text: "Cancel",
+          handler: data => {
+            console.log("cancel clicked");
+          }
+        },
+        {
+          text: "Delete Book",
+          handler: data => {
+            this.books.remove(bookID);
+          }
+        }
+      ]
+    });
+
+    prompt.present();
+  }
+
 
 }
